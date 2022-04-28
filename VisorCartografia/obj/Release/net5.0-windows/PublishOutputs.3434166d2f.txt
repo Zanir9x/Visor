@@ -1,0 +1,10 @@
+C:\Users\herre\Desktop\dev\VisorCartografia\bin\publish\config-app
+C:\Users\herre\Desktop\dev\VisorCartografia\bin\publish\VisorCartografia.exe
+C:\Users\herre\Desktop\dev\VisorCartografia\bin\publish\VisorCartografia.dll
+C:\Users\herre\Desktop\dev\VisorCartografia\bin\publish\VisorCartografia.deps.json
+C:\Users\herre\Desktop\dev\VisorCartografia\bin\publish\VisorCartografia.runtimeconfig.json
+C:\Users\herre\Desktop\dev\VisorCartografia\bin\publish\VisorCartografia.dll.config
+C:\Users\herre\Desktop\dev\VisorCartografia\bin\publish\VisorCartografia.pdb
+C:\Users\herre\Desktop\dev\VisorCartografia\bin\publish\Dropbox.Api.dll
+C:\Users\herre\Desktop\dev\VisorCartografia\bin\publish\Newtonsoft.Json.dll
+C:\Users\herre\Desktop\dev\VisorCartografia\bin\publish\RestSharp.dll

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
-using VisorCartografia.Models;
 using VisorCartografia.Services;
 using VisorCartografia.Services.Interfaces;
 
@@ -16,9 +15,6 @@ namespace VisorCartografia
         private Dictionary<string, string> archivos;
         private Timer ejecucion;
         private IDropBoxService _dropBoxService;
-        private IAppConfigurarionService _appConfigurarionService;
-        private bool _cargoConfig;
-        private AppConfiguration _appConfiguration;
 
         private void Ejecuta(EventHandler m)
         {
@@ -100,31 +96,29 @@ namespace VisorCartografia
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _appConfigurarionService = new AppConfigurationService();
-            var config = _appConfigurarionService.ObtenConfiguracion(Application.StartupPath);
-            _cargoConfig = config != null;
-            _appConfiguration = config;
-            _dropBoxService = new DropBoxService(config.App, config.Key, config.RefreshToken);
+            var appConfig= new AppConfigurationService();
+            var config = appConfig.ObtenConfiguracion(Application.StartupPath);
 
-            if (_cargoConfig)
-            {   
-                        if (_appConfiguration.Files.Count > 0)
+            if (config != null)
+            {
+                _dropBoxService = new DropBoxService(config.App, config.Key, config.RefreshToken);
+                        if (config.Files.Count > 0)
                         {
-                            archivos =_appConfiguration.Files;
-                            foreach (KeyValuePair<string, string> elemento in _appConfiguration.Files)
+                            archivos =config.Files;
+                            foreach (KeyValuePair<string, string> elemento in config.Files)
                             {
                                 listaArchivos.Items.Add(elemento.Key);
                             }
                         }
                         else
                         {
-                            MessageBox.Show(null, "NO SE ENCONTRO INFORMACIÓN QUE VISUALIZAR", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if(MessageBox.Show(null, "NO SE ENCONTRO INFORMACIÓN QUE VISUALIZAR", "", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
                             Dispose();
                         }  
             }
             else
             {
-                MessageBox.Show(null, "NO SE ENCONTRO EL ARCHIVO DE CONFIGURACIÓN", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(MessageBox.Show(null, "NO SE ENCONTRO EL ARCHIVO DE CONFIGURACIÓN", "", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
                 Dispose();
             }
         }

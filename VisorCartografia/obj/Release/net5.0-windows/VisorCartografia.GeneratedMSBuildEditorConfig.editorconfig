@@ -7,4 +7,4 @@ build_property.PublishSingleFile = False
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = VisorCartografia
-build_property.ProjectDir = D:\Escritorio\CARTOGRAFIA\VisorCartografia\
+build_property.ProjectDir = C:\Users\herre\Desktop\dev\VisorCartografia\

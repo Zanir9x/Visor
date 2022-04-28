@@ -14,7 +14,7 @@ namespace VisorCartografia.Services
             try 
             { 
             string rootPath = ruta;
-            string rutaC = rootPath + "\\config.app";
+            string rutaC = rootPath + "\\config-app";
 
             StreamReader lector = new StreamReader(rutaC);
             string linea;
